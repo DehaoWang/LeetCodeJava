@@ -7,7 +7,7 @@ import java.util.Stack;
 
 public class BinaryTree 
 {
-	public int change = 0829;
+	public int change = 0412;
 	public Node root;
 	
 	public static class Node
