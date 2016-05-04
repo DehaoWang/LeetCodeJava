@@ -6,7 +6,7 @@ public class Main {
 	{
 		// TODO Auto-generated method stub
 			
-		System.out.println("This is something in a new branch");
+		System.out.println("This is something MORE in a new branch");
 
 		BinaryTree testBT = new BinaryTree();
 		testBT.setRoot(3);
