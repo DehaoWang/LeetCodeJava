@@ -5,7 +5,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		// rm duplicates
+		// back to normal
 		
 		int[] testSA = {1, 2, 3, 4, 5, 6, 7};
 		System.out.println(binarySearchInSA(testSA, testSA.length, 6));
