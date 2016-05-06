@@ -1,5 +1,3 @@
-# leetcodejava
-
 This is a collection of leetcode solutions in java.
 
 Many thanks to Fangqin Dai(https://github.com/soulmachine/leetcode) and all who share their brilliant ideas.
