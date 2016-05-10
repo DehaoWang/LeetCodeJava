@@ -8,18 +8,18 @@ public class Main {
 		// TODO Auto-generated method stub
 		int i = 19;
 		for(int n = 0; n < i; n++) {
-			long timedpmemo1 = System.currentTimeMillis();
+			long timememo1 = System.currentTimeMillis();
 			Memo testM = new Memo(n, n);
 			System.out.print(testM.dfs(n, n)+" ");
-			long timedpmemo2 = System.currentTimeMillis();
-			System.out.println("MEMO DP Time used: " + (timedpmemo2 - timedpmemo1));
+			long timememo2 = System.currentTimeMillis();
+			System.out.println("MEMO  Time used: " + (timememo2 - timememo1));
 
 
 			//testM.printMatrix();
-			long timedp1 = System.currentTimeMillis();
+			long time1 = System.currentTimeMillis();
 			System.out.print(uniquePath(n, n)+" ");
-			long timedp2 = System.currentTimeMillis();
-			System.out.println("DP Time used: " + (timedp2 - timedp1));
+			long time2 = System.currentTimeMillis();
+			System.out.println(" Time used: " + (time2 - time1));
 		}
 	}
 
