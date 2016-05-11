@@ -5,7 +5,7 @@ package com.leetcodejava.utils.lc344;
  */
 public class Main {
     public static void main(String[] args){
-        System.out.println("Leetcode Problem 345");
+        System.out.println("Leetcode Problem 344");
         String test1 = "hello";
         System.out.println(reverseString(test1));
         String test2 = "leetcode";
