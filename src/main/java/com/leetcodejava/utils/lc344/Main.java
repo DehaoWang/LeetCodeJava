@@ -1,4 +1,4 @@
-package com.leetcodejava.utils.lc345;
+package com.leetcodejava.utils.lc344;
 
 /**
  * Created by wangdehao on 5/11/16.
@@ -7,11 +7,11 @@ public class Main {
     public static void main(String[] args){
         System.out.println("Leetcode Problem 345");
         String test1 = "hello";
-        System.out.println(reverseVowels(test1));
+        System.out.println(reverseString(test1));
         String test2 = "leetcode";
-        System.out.println(reverseVowels(test2));
+        System.out.println(reverseString(test2));
     }
-    public static String reverseVowels(String str){
+    public static String reverseString(String str){
         if(str == null){
             System.out.println("NULL INPUT");
             return null;
@@ -21,12 +21,12 @@ public class Main {
             int i = 0;
             int j = chars.length - 1;
             while(i < j){
-                while(i < j && ! isVowel(chars[i])){
-                    i++;
-                }
-                while(i < j && ! isVowel(chars[j])){
-                    j--;
-                }
+                //while(i < j && ! isVowel(chars[i])){
+                //    i++;
+                //}
+                //while(i < j && ! isVowel(chars[j])){
+                //    j--;
+                //}
                 // swap for reversion
                 char tmp = chars[i];
                 chars[i] = chars[j];
@@ -37,14 +37,14 @@ public class Main {
             return String.valueOf(chars);
         }
     }
-    public static boolean isVowel(char c){
-        switch (c){
-            case 'a': return true;
-            case 'e': return true;
-            case 'i': return true;
-            case 'o': return true;
-            case 'u': return true;
-            default: return false;
-        }
-    }
+    //public static boolean isVowel(char c){
+    //    switch (c){
+    //        case 'a': return true;
+    //        case 'e': return true;
+    //        case 'i': return true;
+    //        case 'o': return true;
+    //        case 'u': return true;
+    //        default: return false;
+    //    }
+    //}
 }
