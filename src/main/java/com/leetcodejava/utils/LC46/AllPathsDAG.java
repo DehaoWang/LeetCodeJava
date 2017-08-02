@@ -108,21 +108,6 @@ public class AllPathsDAG<Vertex> {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        //          page_name
-        //| 151 | account_list                     | A           | 加载帐号列表页面                  |
-        //| 152 | account_detail                   | B           | 加载帐号详情页面                  |
-        //| 153 | launch_list                      | C           | 加载投放列表页面                  |
-        //| 154 | plan_detail                      | D           | 加载计划详情页面                  |
-        //| 155 | launch_detail                    | E           | 加载投放详情页面                  |
-        //| 156 | ticket_list                      | F           | 加载工单列表页面                  |
-        //| 157 | create_ticket                    | G           | 加载工单创建页面                  |
-        //| 158 | update_ticket                    | H           | 加载工单修改页面                  |
-        //| 159 | detail_report                    | I           | 加载数据页面                     |
-        //| 160 | auto_distribution                | J           | 加载自动分配页面                  |
-        //| 161 | call_record                      | K           | 加载电话记录页面                  |
-        //| 162 | activity_statistic               | L           | 加载行为分析页面                  |
-
-
         // Homepages Set: A, F, I, J, K, L
 
         // Subpages Set: excluding path between homepages
