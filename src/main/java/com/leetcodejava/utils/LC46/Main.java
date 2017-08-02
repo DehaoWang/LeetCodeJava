@@ -22,14 +22,14 @@ public class Main {
 
 		// phase 1: subs generator
 
-//		String testS2 = "abcde";
-//
-//		Set<String> permutationsSet = getPermutationsOpt(testS2);
-//
-//		for(String permutationExt : permutationsSet){
-//			System.out.println(permutationExt);
-//		}
-//		System.out.println(permutationsSet.size());
+		String testS2 = "abcde";
+
+		Set<String> permutationsSet = getPermutationsOpt(testS2);
+
+		//for(String permutationExt : permutationsSet){
+		//	System.out.println(permutationExt);
+		//}
+		System.out.println(permutationsSet.size());
 
 		// phase 2: match count
 		String model = "abc";
