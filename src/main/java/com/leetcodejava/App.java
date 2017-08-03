@@ -1,5 +1,4 @@
 package com.leetcodejava;
-import com.leetcodejava.utils.LC102_BT.BinaryTree;
 
 /**
  * Hello world!
