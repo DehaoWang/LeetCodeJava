@@ -4,12 +4,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-        int ans = Integer.parseInt("1101",2);
-        int and = 15 & 3;
-        System.out.println("test: "+ans);
-        System.out.println("test: "+and);
 
-        int num1 = 2;
+        int num1 = 5;
 
         int[] bin1 = com.leetcodejava.algorithms.lc461.Main.convertNum2Binary(num1);
         com.leetcodejava.algorithms.lc461.Main.printBinary(bin1);
