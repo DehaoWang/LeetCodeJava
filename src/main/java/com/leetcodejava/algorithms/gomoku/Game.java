@@ -12,14 +12,17 @@ public class Game {
     int boardSize = 11;
 
     int movePlayerId = 0;
+    String movePlayerName = "noBody";
     private int stepNum = 0;
     private int roundNum = 0;
+    private boolean onGoing = true;
 
     public Game(Player playerProfile0, Player playerProfile1, int boardSize, int cntOfWin) {
         this.playerProfile0 = playerProfile0;
         this.playerProfile1 = playerProfile1;
         this.cntOfWin = cntOfWin;
         this.boardSize = boardSize;
+        this.movePlayerName = playerProfile0.getName();
 
         initBoard();
     }
@@ -37,13 +40,9 @@ public class Game {
         if(stepNum % 2 == 0){
             roundNum++;
         }
+
         if(board[x][y].equals(emptyLocation)){
-            if(movePlayerId == 0){
-                board[x][y] = playerProfile0.getName() + roundNum;
-            }
-            else {
-                board[x][y] = playerProfile1.getName() + roundNum;
-            }
+            board[x][y] = movePlayerName + roundNum;
         }
         else {
             System.out.println("The location has an PIECE !");
@@ -51,7 +50,15 @@ public class Game {
         }
         printBoard();
         validateBoard(playerProfile0.getName(), playerProfile1.getName());
+
+        // switch player
         movePlayerId = 1 - movePlayerId;
+        if(movePlayerId == 0){
+            movePlayerName = playerProfile0.getName();
+        }
+        else {
+            movePlayerName = playerProfile1.getName();
+        }
         stepNum++;
     }
 
@@ -68,9 +75,11 @@ public class Game {
     public String validateBoard(String p1, String p2){
         if(validate(p1)){
             System.out.println("The winner is " + p1 + " !");
+            onGoing = false;
         }
         if(validate(p2)){
             System.out.println("The winner is " + p2 + " !");
+            onGoing = false;
         }
         return "noBody";
     }
@@ -182,5 +191,45 @@ public class Game {
             }
         }
         return false;
+    }
+
+    public boolean isOnGoing() {
+        return onGoing;
+    }
+
+    public void setOnGoing(boolean onGoing) {
+        this.onGoing = onGoing;
+    }
+
+    public int getMovePlayerId() {
+        return movePlayerId;
+    }
+
+    public void setMovePlayerId(int movePlayerId) {
+        this.movePlayerId = movePlayerId;
+    }
+
+    public Player getPlayerProfile1() {
+        return playerProfile1;
+    }
+
+    public void setPlayerProfile1(Player playerProfile1) {
+        this.playerProfile1 = playerProfile1;
+    }
+
+    public Player getPlayerProfile0() {
+        return playerProfile0;
+    }
+
+    public void setPlayerProfile0(Player playerProfile0) {
+        this.playerProfile0 = playerProfile0;
+    }
+
+    public String getMovePlayerName() {
+        return movePlayerName;
+    }
+
+    public void setMovePlayerName(String movePlayerName) {
+        this.movePlayerName = movePlayerName;
     }
 }

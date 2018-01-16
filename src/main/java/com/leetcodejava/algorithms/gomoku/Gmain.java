@@ -12,10 +12,14 @@ public class Gmain {
         Player player0 = new Player("A");
         Player player1 = new Player("B");
         Game gomokuGame = new Game(player0, player1, boardSize, cntOfWin);
-        gomokuGame.roundStep(0,8);
-        gomokuGame.roundStep(8,0);
-        gomokuGame.roundStep(1,9);
-        gomokuGame.roundStep(9,9);
-        gomokuGame.roundStep(2,10);
+
+        Engine engine = new Engine(gomokuGame);
+        engine.getLocationOfStep();
+
+//        gomokuGame.roundStep(0,8);
+//        gomokuGame.roundStep(8,0);
+//        gomokuGame.roundStep(1,9);
+//        gomokuGame.roundStep(9,9);
+//        gomokuGame.roundStep(2,10);
     }
 }
