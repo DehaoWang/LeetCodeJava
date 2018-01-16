@@ -52,17 +52,23 @@ public class Game {
 
     public String validateBoard(Player p0, Player p1){
         if(validate(p0)){
-            System.out.print("The winner is " + p0.getName() + ".");
+            if(printInfo){
+                System.out.print("The winner is " + p0.getName() + ".");
+            }
             onGoing = false;
             winnerPlayer = p0;
         }
         if(validate(p1)){
-            System.out.print("The winner is " + p1.getName() + ".");
+            if(printInfo) {
+                System.out.print("The winner is " + p1.getName() + ".");
+            }
             onGoing = false;
             winnerPlayer = p1;
         }
         if(!onGoing){
-            System.out.println(" The evaluate move is " + board.getWinnerLocation().toString());
+            if(printInfo){
+                System.out.println(" The evaluate move is " + board.getWinnerLocation().toString());
+            }
         }
         return "noBody";
     }

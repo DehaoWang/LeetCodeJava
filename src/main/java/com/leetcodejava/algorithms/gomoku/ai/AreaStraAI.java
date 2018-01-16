@@ -10,6 +10,10 @@ import java.util.Random;
  */
 public class AreaStraAI extends AI{
 
+    // 1 - 75.0%
+    // 2 - 90.0%
+    // 3 - 97.5%
+    // 4 - 99.5%
     int shrinkStart = 1;
 
     public AreaStraAI(int sleepTime) {

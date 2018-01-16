@@ -40,12 +40,13 @@ public class Gmain {
             if(gomoku.getWinnerPlayer() == playerB){
                 winCntForPlayerB++;
             }
-            System.out.println("Player A win " + winCntForPlayerA + " times");
-            System.out.println("Player B win " + winCntForPlayerB + " times");
+            if(printInfo){
+                System.out.println("Player A win " + winCntForPlayerA + " times");
+                System.out.println("Player B win " + winCntForPlayerB + " times");
+            }
             Thread.sleep(sleepTimeForSingleGame);
         }
-
-
-
+        System.out.println("Player A win " + winCntForPlayerA + " times");
+        System.out.println("Player B win " + winCntForPlayerB + " times");
     }
 }
