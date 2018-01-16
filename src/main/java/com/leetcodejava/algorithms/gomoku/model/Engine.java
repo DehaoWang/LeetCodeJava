@@ -1,8 +1,5 @@
 package com.leetcodejava.algorithms.gomoku.model;
 
-import com.leetcodejava.algorithms.gomoku.model.Game;
-import com.leetcodejava.algorithms.gomoku.model.Location;
-
 import java.util.Scanner;
 
 /**
