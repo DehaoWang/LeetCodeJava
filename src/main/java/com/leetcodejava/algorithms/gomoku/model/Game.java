@@ -10,30 +10,34 @@ public class Game {
 
     int movePlayerId = 0;
     Player movePlayer;
-    private int stepNum = 0;
+    private int stepNum = 1;
     private int roundNum = 1;
     private boolean onGoing = true;
+    private Player winnerPlayer = null;
+    private boolean printInfo = true;
 
-    public Game(Player player0, Player player1, int boardSize, int cntOfWin) {
+    public Game(Player player0, Player player1, int boardSize, int cntOfWin, boolean printInfo) {
         this.player0 = player0;
         this.player1 = player1;
         movePlayer = player0;
         board = new Board();
-        board.init(boardSize, cntOfWin);
+        board.init(boardSize, cntOfWin, printInfo);
+        this.printInfo = printInfo;
     }
 
     public void roundStep(Location location){
-
         boolean successPut = board.putPiece(location.getX(), location.getY(), movePlayer.getName(), roundNum);
         if(!successPut){
             return;
         }
-        // // TODO: 18/1/16 problem 
+        // TODO: 18/1/16 problem
         if(stepNum % 2 == 0){
             roundNum++;
         }
-        board.printBoard();
-        validateBoard(player0.getName(), player1.getName());
+        if(printInfo){
+            board.printBoard();
+        }
+        validateBoard(player0, player1);
 
         // switch player
         movePlayerId = 1 - movePlayerId;
@@ -46,29 +50,34 @@ public class Game {
         stepNum++;
     }
 
-    public String validateBoard(String p1, String p2){
-        if(validate(p1)){
-            System.out.println("The winner is " + p1 + " !");
+    public String validateBoard(Player p0, Player p1){
+        if(validate(p0)){
+            System.out.print("The winner is " + p0.getName() + ".");
             onGoing = false;
+            winnerPlayer = p0;
         }
-        if(validate(p2)){
-            System.out.println("The winner is " + p2 + " !");
+        if(validate(p1)){
+            System.out.print("The winner is " + p1.getName() + ".");
             onGoing = false;
+            winnerPlayer = p1;
+        }
+        if(!onGoing){
+            System.out.println(" The evaluate move is " + board.getWinnerLocation().toString());
         }
         return "noBody";
     }
 
-    public boolean validate(String x) {
-        if(board.validateDegree0(x)){
+    public boolean validate(Player p) {
+        if(board.validateDegree0(p)){
             return true;
         }
-        if(board.validateDegree45(x)){
+        if(board.validateDegree45(p)){
             return true;
         }
-        if(board.validateDegree90(x)){
+        if(board.validateDegree90(p)){
             return true;
         }
-        if(board.validateDegree135(x)){
+        if(board.validateDegree135(p)){
             return true;
         }
         return false;
@@ -84,5 +93,9 @@ public class Game {
 
     public Board getBoard() {
         return board;
+    }
+
+    public Player getWinnerPlayer() {
+        return winnerPlayer;
     }
 }

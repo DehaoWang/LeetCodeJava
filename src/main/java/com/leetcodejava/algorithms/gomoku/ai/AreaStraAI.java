@@ -8,18 +8,23 @@ import java.util.Random;
 /**
  * Created by wangdehao on 18/1/16.
  */
-public class SimpleAI extends AI{
+public class AreaStraAI extends AI{
 
-    public SimpleAI(int sleepTime) {
+    int shrinkStart = 1;
+
+    public AreaStraAI(int sleepTime) {
         this.sleepTime = sleepTime;
     }
 
     @Override
     public Location getLocationBasedOnBoard(Board board) throws InterruptedException {
         int boardSize = board.getBoardSize();
+
+        int sizeAfterShrink = boardSize-2*shrinkStart;
+
         Random random = new Random();
-        int x = Math.abs(random.nextInt()) % boardSize;
-        int y = Math.abs(random.nextInt()) % boardSize;
+        int x = shrinkStart + Math.abs(random.nextInt()) % sizeAfterShrink;
+        int y = shrinkStart + Math.abs(random.nextInt()) % sizeAfterShrink;
         Thread.sleep(sleepTime);
         return new Location(x+","+y);
     }

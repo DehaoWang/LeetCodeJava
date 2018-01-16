@@ -15,17 +15,18 @@ public class Engine {
         this.gomokuGame = gomokuGame;
     }
 
-    public void getLocationOfStep(){
+    public void getLocationOfStep() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
+        Location location;
         while(gomokuGame.isOnGoing()){
             Player movePlayer = gomokuGame.getMovePlayer();
-            System.out.println("please input the piece location for player: "+movePlayer.getName());
             if(movePlayer.hasAi()){
-                Location location = movePlayer.getAi().getLocationBasedOnBoard(gomokuGame.getBoard());
-                gomokuGame.roundStep(location);
+                location = movePlayer.getAi().getLocationBasedOnBoard(gomokuGame.getBoard());
             }
-            String loc = scanner.next();
-            Location location = new Location(loc);
+            else {
+                System.out.println("please input the piece location for player: "+movePlayer.getName());
+                location = new Location(scanner.next());
+            }
             gomokuGame.roundStep(location);
         }
     }

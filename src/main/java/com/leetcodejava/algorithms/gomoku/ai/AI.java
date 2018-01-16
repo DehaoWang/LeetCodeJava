@@ -7,7 +7,9 @@ import com.leetcodejava.algorithms.gomoku.model.Location;
  * Created by wangdehao on 18/1/16.
  */
 public class AI {
-    public Location getLocationBasedOnBoard(Board board){
+    public int sleepTime = 500;
+
+    public Location getLocationBasedOnBoard(Board board) throws InterruptedException {
         return new Location("0,0");
     }
 }
