@@ -1,4 +1,4 @@
-package com.leetcodejava.algorithms.gomoku;
+package com.leetcodejava.algorithms.gomoku.env;
 
 import java.util.Scanner;
 

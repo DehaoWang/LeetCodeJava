@@ -1,4 +1,4 @@
-package com.leetcodejava.algorithms.gomoku;
+package com.leetcodejava.algorithms.gomoku.env;
 
 /**
  * Created by wangdehao on 18/1/16.
@@ -23,7 +23,6 @@ public class Game {
         this.cntOfWin = cntOfWin;
         this.boardSize = boardSize;
         this.movePlayerName = playerProfile0.getName();
-
         initBoard();
     }
 
@@ -40,7 +39,6 @@ public class Game {
         if(stepNum % 2 == 0){
             roundNum++;
         }
-
         if(board[x][y].equals(emptyLocation)){
             board[x][y] = movePlayerName + roundNum;
         }
@@ -139,7 +137,6 @@ public class Game {
                 }
             }
         }
-
         // i = board.length-1
         for(int j = 0; j < board[0].length; j++){
             int cnt = 0;
@@ -155,7 +152,6 @@ public class Game {
                 }
             }
         }
-
         return false;
     }
 
@@ -197,39 +193,7 @@ public class Game {
         return onGoing;
     }
 
-    public void setOnGoing(boolean onGoing) {
-        this.onGoing = onGoing;
-    }
-
-    public int getMovePlayerId() {
-        return movePlayerId;
-    }
-
-    public void setMovePlayerId(int movePlayerId) {
-        this.movePlayerId = movePlayerId;
-    }
-
-    public Player getPlayerProfile1() {
-        return playerProfile1;
-    }
-
-    public void setPlayerProfile1(Player playerProfile1) {
-        this.playerProfile1 = playerProfile1;
-    }
-
-    public Player getPlayerProfile0() {
-        return playerProfile0;
-    }
-
-    public void setPlayerProfile0(Player playerProfile0) {
-        this.playerProfile0 = playerProfile0;
-    }
-
     public String getMovePlayerName() {
         return movePlayerName;
-    }
-
-    public void setMovePlayerName(String movePlayerName) {
-        this.movePlayerName = movePlayerName;
     }
 }

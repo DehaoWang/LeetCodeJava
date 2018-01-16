@@ -1,4 +1,4 @@
-package com.leetcodejava.algorithms.gomoku;
+package com.leetcodejava.algorithms.gomoku.env;
 
 /**
  * Created by wangdehao on 18/1/16.
@@ -12,9 +12,5 @@ public class Player {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

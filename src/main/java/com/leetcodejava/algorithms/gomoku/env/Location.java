@@ -1,4 +1,4 @@
-package com.leetcodejava.algorithms.gomoku;
+package com.leetcodejava.algorithms.gomoku.env;
 
 /**
  * Created by wangdehao on 18/1/16.
@@ -18,15 +18,7 @@ public class Location {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
     public int getY() {
         return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
     }
 }
