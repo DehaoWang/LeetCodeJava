@@ -1,63 +1,34 @@
-package com.leetcodejava.algorithms.gomoku.env;
+package com.leetcodejava.algorithms.gomoku.model;
 
 /**
  * Created by wangdehao on 18/1/16.
  */
-public class Game {
-    private String[][] board;
+public class Board {
     private final String emptyLocation = "+ ";
-    Player playerProfile0;
-    Player playerProfile1;
-    int cntOfWin = 5;
-    int boardSize = 11;
+    private String[][] board;
+    private int boardSize;
+    private int cntOfWin;
 
-    int movePlayerId = 0;
-    String movePlayerName = "noBody";
-    private int stepNum = 0;
-    private int roundNum = 0;
-    private boolean onGoing = true;
-
-    public Game(Player playerProfile0, Player playerProfile1, int boardSize, int cntOfWin) {
-        this.playerProfile0 = playerProfile0;
-        this.playerProfile1 = playerProfile1;
-        this.cntOfWin = cntOfWin;
-        this.boardSize = boardSize;
-        this.movePlayerName = playerProfile0.getName();
-        initBoard();
+    public boolean putPiece(int x, int y, String movePlayerName, int roundNum){
+        if(board[x][y].equals(emptyLocation)){
+            board[x][y] = movePlayerName + roundNum;
+            return true;
+        }
+        else {
+            System.out.println("The location has an PIECE !");
+            return false;
+        }
     }
 
-    private void initBoard() {
+    public void init(int boardSize, int cntOfWin) {
+        this.boardSize = boardSize;
         board = new String[boardSize][boardSize];
+        this.cntOfWin = cntOfWin;
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[0].length; j++){
                 board[i][j] = "+ ";
             }
         }
-    }
-
-    public void roundStep(int x, int y){
-        if(stepNum % 2 == 0){
-            roundNum++;
-        }
-        if(board[x][y].equals(emptyLocation)){
-            board[x][y] = movePlayerName + roundNum;
-        }
-        else {
-            System.out.println("The location has an PIECE !");
-            System.exit(1);
-        }
-        printBoard();
-        validateBoard(playerProfile0.getName(), playerProfile1.getName());
-
-        // switch player
-        movePlayerId = 1 - movePlayerId;
-        if(movePlayerId == 0){
-            movePlayerName = playerProfile0.getName();
-        }
-        else {
-            movePlayerName = playerProfile1.getName();
-        }
-        stepNum++;
     }
 
     public void printBoard(){
@@ -70,35 +41,15 @@ public class Game {
         }
     }
 
-    public String validateBoard(String p1, String p2){
-        if(validate(p1)){
-            System.out.println("The winner is " + p1 + " !");
-            onGoing = false;
-        }
-        if(validate(p2)){
-            System.out.println("The winner is " + p2 + " !");
-            onGoing = false;
-        }
-        return "noBody";
+    public int getBoardSize() {
+        return boardSize;
     }
 
-    private boolean validate(String x) {
-        if(validateDegree0(x)){
-            return true;
-        }
-        if(validateDegree45(x)){
-            return true;
-        }
-        if(validateDegree90(x)){
-            return true;
-        }
-        if(validateDegree135(x)){
-            return true;
-        }
-        return false;
+    public int getCntOfWin() {
+        return cntOfWin;
     }
 
-    private boolean validateDegree45(String x) {
+    public boolean validateDegree45(String x) {
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[0].length; j++){
                 if(i * j > 0){
@@ -121,7 +72,7 @@ public class Game {
         return false;
     }
 
-    private boolean validateDegree135(String x) {
+    public boolean validateDegree135(String x) {
         // j = 0
         for(int i = 0; i < board.length; i++){
             int cnt = 0;
@@ -187,13 +138,5 @@ public class Game {
             }
         }
         return false;
-    }
-
-    public boolean isOnGoing() {
-        return onGoing;
-    }
-
-    public String getMovePlayerName() {
-        return movePlayerName;
     }
 }

@@ -1,4 +1,4 @@
-package com.leetcodejava.algorithms.gomoku.env;
+package com.leetcodejava.algorithms.gomoku.model;
 
 /**
  * Created by wangdehao on 18/1/16.
