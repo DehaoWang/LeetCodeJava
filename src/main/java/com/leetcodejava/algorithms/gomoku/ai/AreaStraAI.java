@@ -14,7 +14,7 @@ public class AreaStraAI extends AI{
     // 2 - 90.0%
     // 3 - 97.5%
     // 4 - 99.5%
-    int shrinkStart = 1;
+    int shrinkStart = 2;
 
     public AreaStraAI(int sleepTime) {
         this.sleepTime = sleepTime;

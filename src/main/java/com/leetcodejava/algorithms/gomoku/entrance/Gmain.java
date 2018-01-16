@@ -26,6 +26,7 @@ public class Gmain {
         for(int i = 0; i < numOfGames; i++){
             AI aiA = new SimpleAI(sleepTimeForSingleStep);
             Player playerA = new Player("A", aiA);
+//            Player playerA = new Player("A");
 
             AI aiB = new AreaStraAI(sleepTimeForSingleStep);
             Player playerB = new Player("B", aiB);
