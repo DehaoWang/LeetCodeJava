@@ -14,9 +14,19 @@ public class Main {
 		System.out.println("Reversed integer: " + revNum(testPN));
 		System.out.println("R: " + rN(testPN));
 		
-		int testIE = 100;
+		int testIE = 120;
 		System.out.println("Reversed integer: " + revNum(testIE));
 		System.out.println("R: " + rN(testIE));
+
+
+		int testIE1 = 1534236469;
+		System.out.println("Reversed integer: " + revNum(testIE1));
+		System.out.println("R: " + rN(testIE1));
+//1534236469
+
+		double x = Math.pow(2, 31);
+		System.out.println("x="+x);
+
 	}
 
 	public static int revNum(int num)
@@ -51,11 +61,14 @@ public class Main {
 	public static int rN(int x)
 	{
 		int r = 0;
-		
+
 		for(; x != 0; x /= 10)
 		{
 			r = r * 10 + x % 10;
 		}
+        if(r >= 2.147483648E9 || r < -2.147483648E9){
+            return 0;
+        }
 		return r;
 	}
 }

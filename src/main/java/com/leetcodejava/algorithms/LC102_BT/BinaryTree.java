@@ -1,8 +1,6 @@
 package com.leetcodejava.algorithms.LC102_BT;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 
 public class BinaryTree 
@@ -34,6 +32,55 @@ public class BinaryTree
         }
 
 		return binaryTree.root;
+	}
+
+	public static List<Double> calAvgByLevel(Node root) {
+        List<Double> res = new ArrayList<Double>();
+        if(root == null)
+        {
+            return res;
+        }
+        else
+        {
+            Queue<Node> queue = new LinkedList<Node>();
+            queue.add(root);
+//			int distanceToRoot = 0;
+            root.dist = 0;
+            int level = 0;
+            double sum = 0;
+            int count = 0;
+            while( ! queue.isEmpty())
+            {
+                Node u = queue.poll();
+
+                if(u.dist > level){
+                    res.add(sum / count);
+                    sum = u.val.hashCode();
+                    count = 1;
+                    level = u.dist;
+                }
+                else {
+                    sum += u.val.hashCode();
+                    count++;
+                }
+
+                u.visited = true;
+                System.out.println(String.format("[%5s]: distanceToRoot = %d, visited: %b, level: %s, sum: %f, count: %d",
+                        u.val, u.dist, u.visited, level, sum, count));
+                if(u.left != null && !u.left.visited)
+                {
+                    u.left.dist = u.dist + 1;
+                    queue.add(u.left);
+                }
+                if(u.right != null && !u.right.visited)
+                {
+                    u.right.dist = u.dist + 1;
+                    queue.add(u.right);
+                }
+            }
+            res.add(sum / count);
+        }
+        return res;
 	}
 
 	public static class Node
